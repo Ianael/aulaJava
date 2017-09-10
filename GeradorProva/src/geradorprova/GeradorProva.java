@@ -8,6 +8,9 @@ package geradorprova;
  *
  * @author 6182275
  */
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class GeradorProva {
@@ -15,7 +18,7 @@ public class GeradorProva {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         Scanner s = new Scanner(System.in);
         String nome, local, data;
         int peso, qnt, i;
@@ -35,7 +38,7 @@ public class GeradorProva {
         System.out.println("Peso da Prova: ");
         peso = s.nextInt();
         p.setPeso(peso);
-
+        
         while(true){
             System.out.println("Qual o tipo de questão?(X/O/D) ");
             String decisao = s.nextLine();
@@ -78,5 +81,18 @@ public class GeradorProva {
             }
         }
         System.out.println(p.obtemDetalhes());
+        
+        System.out.print("Deseja salvar em um arquivo?(Sim/Nao):");
+        String opcao = s.nextLine();
+        
+        String txtProva = p.obtemDetalhes();
+        if(opcao.toLowerCase().equals("sim")){                  
+            try{
+                File arq = new File("Prova.txt");
+                FileWriter out = new FileWriter(arq);
+                out.write(txtProva);
+                out.close();
+            }finally{}
+        }
     }
 }

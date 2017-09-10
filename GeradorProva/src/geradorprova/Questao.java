@@ -9,6 +9,7 @@ package geradorprova;
  *
  * @author ianael
  */
+
 abstract class Questao {
     private String pergunta;
     private double peso;

@@ -12,6 +12,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -41,7 +42,11 @@ public class CalculadoraJuros_JavaFX extends Application {
         Button btn2 = new Button();
         btn2.setText("Juros Composto");
         
-        Label juros = new Label("Juros:");
+        HBox h = new HBox();
+        h.getChildren().addAll(btn1,btn2);
+        h.setSpacing(60);
+        
+        Label juros = new Label("JUROS:");
         
         btn1.setOnAction(new EventHandler<ActionEvent>() {
             public void handle(ActionEvent event) {
@@ -79,8 +84,7 @@ public class CalculadoraJuros_JavaFX extends Application {
         orquestrador.getChildren().add(n);
         orquestrador.getChildren().add(tax);
         orquestrador.getChildren().add(taxa);
-        orquestrador.getChildren().add(btn1);
-        orquestrador.getChildren().add(btn2);
+        orquestrador.getChildren().addAll(h);
         orquestrador.getChildren().add(juros);
         
         Scene cena = new Scene(orquestrador, 300, 350);

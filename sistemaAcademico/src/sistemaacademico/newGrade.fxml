@@ -6,16 +6,16 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sistemaacademico.GradesScreenController">
+<AnchorPane id="AnchorPane" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Button layoutX="58.0" layoutY="681.0" mnemonicParsing="false" text="Voltar">
+      <Button layoutX="58.0" layoutY="681.0" mnemonicParsing="false" onAction="#goToMyExams" text="Voltar">
          <font>
-            <Font name="Consolas Bold" size="20.0" />
+            <Font name="Consolas Bold" size="22.0" />
          </font>
       </Button>
-      <Button layoutX="881.0" layoutY="681.0" mnemonicParsing="false" text="Salvar">
+      <Button layoutX="875.0" layoutY="681.0" mnemonicParsing="false" text="Salvar">
          <font>
-            <Font name="Consolas Bold" size="20.0" />
+            <Font name="Consolas Bold" size="22.0" />
          </font>
       </Button>
       <TextField layoutX="73.0" layoutY="334.0" prefHeight="31.0" prefWidth="436.0">

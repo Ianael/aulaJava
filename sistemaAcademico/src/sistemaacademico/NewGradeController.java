@@ -7,21 +7,31 @@ package sistemaacademico;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.fxml.Initializable;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 
 /**
  * FXML Controller class
  *
  * @author ianael
  */
-public class NewGradeController implements Initializable {
-
+public class NewGradeController extends UserInterface{
+   
+    public NewGradeController(){
+        super("newGrade.fxml");
+    }
     /**
      * Initializes the controller class.
+     * @param url
+     * @param rb
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
     
+    @FXML
+    public void goToMyExams(ActionEvent event ){
+        ScreenController.getInstance().back(1);
+    }
 }

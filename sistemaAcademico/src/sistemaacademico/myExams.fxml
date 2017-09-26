@@ -6,20 +6,19 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="768.0" prefWidth="1024.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.111" fx:controller="sistemaacademico.MyExamsController">
+<AnchorPane id="AnchorPane" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Button layoutX="53.0" layoutY="680.0" mnemonicParsing="false" text="Voltar">
+      <Button layoutX="53.0" layoutY="680.0" mnemonicParsing="false" onAction="#goToDashboard" text="Voltar">
          <font>
             <Font name="Consolas Bold" size="22.0" />
          </font>
       </Button>
-      <Button layoutX="649.0" layoutY="44.0" mnemonicParsing="false" text="Adicionar Nova Avaliação">
+      <Button layoutX="649.0" layoutY="44.0" mnemonicParsing="false" onAction="#goToNewExam" text="Adicionar Nova Avaliação">
          <font>
             <Font name="Consolas Bold" size="22.0" />
          </font>
       </Button>
-      <Button layoutX="53.0" layoutY="44.0" mnemonicParsing="false" text="Informar Nota">
+      <Button layoutX="53.0" layoutY="44.0" mnemonicParsing="false" onAction="#goToNewGrade" text="Informar Nota">
          <font>
             <Font name="Consolas Bold" size="22.0" />
          </font>

@@ -4,15 +4,14 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Button layoutX="371.0" layoutY="260.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="284.0" text="Minhas Avaliações">
+      <Button layoutX="371.0" layoutY="260.0" mnemonicParsing="false" onAction="#goToMyExams" prefHeight="54.0" prefWidth="284.0" text="Minhas Avaliações">
          <font>
             <Font name="Consolas Bold" size="24.0" />
          </font>
       </Button>
-      <Button layoutX="371.0" layoutY="399.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="284.0" text="Meu Desempenho">
+      <Button layoutX="371.0" layoutY="399.0" mnemonicParsing="false" onAction="#goToPerformance" prefHeight="54.0" prefWidth="284.0" text="Meu Desempenho">
          <font>
             <Font name="Consolas Bold" size="24.0" />
          </font>

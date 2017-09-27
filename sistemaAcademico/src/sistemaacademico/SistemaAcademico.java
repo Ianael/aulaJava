@@ -23,6 +23,7 @@ public class SistemaAcademico extends Application {
     
     @Override
     public void start(Stage primaryStage){
+        primaryStage.setTitle("Sistema Acadêmico");
         DashboardController firstScreen = new DashboardController();
         ScreenController.getInstance().StageInitialize(primaryStage, firstScreen);
     }

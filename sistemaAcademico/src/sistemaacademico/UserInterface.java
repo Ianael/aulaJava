@@ -6,6 +6,8 @@
 package sistemaacademico;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.fxml.FXMLLoader;
@@ -27,7 +29,9 @@ public abstract class UserInterface implements Initializable{
     }
     
     public void goBack(){
-        System.out.println("Classe "+this+" não faz tratamento de retorno.");
+        URL u = null;
+        ResourceBundle r = null;
+        initialize(u,r);
     }
     
     public final Scene getScene(){

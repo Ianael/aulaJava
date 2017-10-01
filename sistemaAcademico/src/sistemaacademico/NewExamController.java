@@ -10,6 +10,7 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.TextField;
 
 /**
  * FXML Controller class
@@ -17,7 +18,12 @@ import javafx.scene.control.ComboBox;
  * @author ianael
  */
 public class NewExamController extends UserInterface{
+    @FXML
+    private TextField textName;
 
+    @FXML
+    private TextField textValue;
+        
     @FXML
     private ComboBox boxDis;
     
@@ -101,8 +107,23 @@ public class NewExamController extends UserInterface{
         );
         
         boxMed.getItems().addAll("M1","M2","M3");
-    }    
-   
+ 
+    }  
+    
+    @FXML
+    private void saveExam(){  
+        Exam ex = new Exam();
+        
+        ex.setName(textName.getText());
+        double textV = Double.parseDouble(textValue.getText());
+        ex.setValue(textV);
+        ex.setSubject(boxDis.getValue().toString());
+        ex.setM(boxMed.getValue().toString());
+ 
+        ex.save();
+        ScreenController.getInstance().back(1);
+    }
+    
     public void goToMyExams(ActionEvent event ){
         ScreenController.getInstance().back(1);
     }

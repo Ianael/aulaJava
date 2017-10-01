@@ -23,6 +23,11 @@ public class SistemaAcademico extends Application {
     
     @Override
     public void start(Stage primaryStage){
+        //primaryStage.setMaxHeight(768);
+        //primaryStage.setMinHeight(768);
+        //primaryStage.setMaxWidth(1024);
+        //primaryStage.setMinWidth(1024);
+        
         primaryStage.setTitle("Sistema Acadêmico");
         DashboardController firstScreen = new DashboardController();
         ScreenController.getInstance().StageInitialize(primaryStage, firstScreen);

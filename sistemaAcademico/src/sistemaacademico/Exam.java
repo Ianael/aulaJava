@@ -5,8 +5,15 @@
  */
 package sistemaacademico;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -17,22 +24,94 @@ public class Exam{
     private String subject;
     private double value;
     private double grade;
-    private char M;
+    private String M;
     private int archiveLine;
 
     public Exam(){
     
     }
     
-    /*public void save(){
-        String csvExams = p.obtemDetalhes()
+    public void save(){
         try{
-            File arch = new File("Exams.csv");
-            FileWriter out = new FileWriter(arch);
-            out.write(csvExams);
+            File arch = new File("Exams.CSV");
+            FileWriter out;
+
+            if(arch.exists()){
+               out = new FileWriter(arch, true);
+            }else{
+               out = new FileWriter(arch);
+            }
+            out.write(subject+";"+M+";"+name+";"+value+"\n");
             out.close();
-        }finally{}
-    }*/
+        }catch(IOException e){
+            System.err.println(e.getMessage());
+        }
+    }
+    
+    public void reload(){
+        File arch = new File("Exams.CSV");
+        
+        try{
+            List<String> lines = Files.readAllLines(arch.toPath());
+
+            lines.remove(MyExamsController.index);
+            lines.add(MyExamsController.index, this.subject + ";" + this.M + ";" + this.name + ";" + this.value + ";" + this.grade);
+
+            Files.write(arch.toPath(), lines, StandardCharsets.UTF_8);
+        }catch(IOException e){
+            System.err.println(e.getMessage());
+        }
+    }
+    
+    public ArrayList<Exam> getExamList(){     
+        String table;
+        BufferedReader br = null;
+        FileReader fr = null;
+        
+        ArrayList<String> exa = new ArrayList<>();
+        ArrayList<Exam> exam = new ArrayList<>();
+        
+        try {
+            fr = new FileReader("Exams.CSV");
+            br = new BufferedReader(fr);
+            while((table = br.readLine()) != null){
+                exa.add(table);
+            }
+            
+            Exam ex;
+            for(int i = 0; i < exa.size(); i++){
+                
+                String[] part = exa.get(i).split(";");
+                
+                ex = new Exam();
+                ex.setSubject(part[0]);
+                ex.setM(part[1]);
+                ex.setName(part[2]);
+                ex.setValue(Double.parseDouble(part[3]));
+                if(part.length>=5){
+                    ex.setGrade(Double.parseDouble(part[4]));
+                }else{
+                    ex.setGrade(0.0);
+                }
+                exam.add(ex);
+            }
+
+        }catch(IOException e){
+        }finally{
+            try{
+                if(br != null){
+                    br.close();
+                }
+
+                if(fr != null){
+                    fr.close();
+                }
+
+            }catch(IOException e2){}
+        }
+    
+        return exam;
+    }
     
     /**
      * @return the name
@@ -91,20 +170,6 @@ public class Exam{
     }
 
     /**
-     * @return the M
-     */
-    public char getM() {
-        return M;
-    }
-
-    /**
-     * @param M the M to set
-     */
-    public void setM(char M) {
-        this.M = M;
-    }
-
-    /**
      * @return the archiveLine
      */
     public int getArchiveLine() {
@@ -117,6 +182,25 @@ public class Exam{
     public void setArchiveLine(int archiveLine) {
         this.archiveLine = archiveLine;
     }
+
+    /**
+     * @return the M
+     */
+    public String getM() {
+        return M;
+    }
+
+    /**
+     * @param M the M to set
+     */
+    public void setM(String M) {
+        this.M = M;
+    }
     
+    public double finalM(String subject, char[] M){
+        double MFinal = Double.parseDouble(subject)/3;
+        
+        return MFinal;
+    }
     
 }

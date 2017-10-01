@@ -9,6 +9,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.chart.BarChart;
 import javafx.scene.control.ComboBox;
 
 /**
@@ -20,6 +21,9 @@ public class PerformanceController extends UserInterface{
     
     @FXML
     private ComboBox boxDis; 
+    
+    @FXML
+    private BarChart chart;
     
     public PerformanceController(){
         super("myPerformance.fxml");

@@ -16,7 +16,7 @@
             <Font name="Consolas Bold" size="22.0" />
          </font>
       </Button>
-      <Button layoutX="819.0" layoutY="678.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="160.0" text="Salvar">
+      <Button layoutX="819.0" layoutY="678.0" mnemonicParsing="false" onAction="#saveExam" prefHeight="42.0" prefWidth="160.0" text="Salvar">
          <font>
             <Font name="Consolas Bold" size="22.0" />
          </font>
@@ -41,12 +41,12 @@
             <Font name="Consolas" size="24.0" />
          </font>
       </Label>
-      <TextField layoutX="98.0" layoutY="123.0" prefHeight="30.0" prefWidth="819.0">
+      <TextField fx:id="textName" layoutX="98.0" layoutY="123.0" prefHeight="30.0" prefWidth="819.0">
          <font>
             <Font name="Consolas" size="16.0" />
          </font>
       </TextField>
-      <TextField layoutX="98.0" layoutY="218.0" prefHeight="30.0" prefWidth="398.0">
+      <TextField fx:id="textValue" layoutX="98.0" layoutY="218.0" prefHeight="30.0" prefWidth="398.0">
          <font>
             <Font name="Consolas" size="16.0" />
          </font>

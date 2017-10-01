@@ -15,12 +15,12 @@
             <Font name="Consolas Bold" size="22.0" />
          </font>
       </Button>
-      <Button layoutX="820.0" layoutY="681.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="158.0" text="Salvar">
+      <Button layoutX="820.0" layoutY="681.0" mnemonicParsing="false" onAction="#saveGrade" prefHeight="42.0" prefWidth="158.0" text="Salvar">
          <font>
             <Font name="Consolas Bold" size="22.0" />
          </font>
       </Button>
-      <TextField layoutX="73.0" layoutY="334.0" prefHeight="31.0" prefWidth="436.0">
+      <TextField fx:id="textGrade" layoutX="73.0" layoutY="334.0" prefHeight="31.0" prefWidth="436.0">
          <font>
             <Font name="Consolas" size="12.0" />
          </font></TextField>
@@ -41,15 +41,15 @@
          <font>
             <Font name="Consolas" size="20.0" />
          </font></Label>
-      <Label layoutX="139.0" layoutY="60.0" text="Label">
+      <Label fx:id="LName" layoutX="139.0" layoutY="60.0" text="Label">
          <font>
             <Font name="Consolas" size="20.0" />
          </font></Label>
-      <Label layoutX="204.0" layoutY="121.0" text="Label">
+      <Label fx:id="LDis" layoutX="204.0" layoutY="121.0" text="Label">
          <font>
             <Font name="Consolas" size="20.0" />
          </font></Label>
-      <Label layoutX="152.0" layoutY="185.0" text="Label">
+      <Label fx:id="LMed" layoutX="152.0" layoutY="185.0" text="Label">
          <font>
             <Font name="Consolas" size="20.0" />
          </font></Label>

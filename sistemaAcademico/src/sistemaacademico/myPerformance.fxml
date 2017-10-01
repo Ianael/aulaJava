@@ -10,12 +10,12 @@
 
 <AnchorPane id="AnchorPane" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Button layoutX="28.0" layoutY="704.0" mnemonicParsing="false" onAction="#goToDashboard" prefHeight="40.0" prefWidth="103.0" text="Voltar">
+      <Button layoutX="45.0" layoutY="690.0" mnemonicParsing="false" onAction="#goToDashboard" prefHeight="42.0" prefWidth="138.0" text="Voltar">
          <font>
             <Font name="Consolas Bold" size="22.0" />
          </font>
       </Button>
-      <BarChart categoryGap="1.0" layoutX="114.0" layoutY="146.0" prefHeight="477.0" prefWidth="797.0">
+      <BarChart fx:id="chart" categoryGap="1.0" layoutX="44.0" layoutY="166.0" prefHeight="477.0" prefWidth="938.0" title="Desempenho">
         <xAxis>
           <CategoryAxis side="BOTTOM" />
         </xAxis>
@@ -23,6 +23,6 @@
           <NumberAxis side="LEFT" />
         </yAxis>
       </BarChart>
-      <ComboBox fx:id="boxDis" layoutX="28.0" layoutY="69.0" prefHeight="42.0" prefWidth="383.0" promptText="Disciplinas" />
+      <ComboBox fx:id="boxDis" layoutX="45.0" layoutY="68.0" prefHeight="42.0" prefWidth="383.0" promptText="Disciplinas" />
    </children>
 </AnchorPane>

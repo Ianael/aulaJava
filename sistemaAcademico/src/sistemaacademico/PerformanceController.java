@@ -10,6 +10,9 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.chart.BarChart;
+import javafx.scene.chart.CategoryAxis;
+import javafx.scene.chart.NumberAxis;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.ComboBox;
 
 /**
@@ -23,7 +26,7 @@ public class PerformanceController extends UserInterface{
     private ComboBox boxDis; 
     
     @FXML
-    private BarChart chart;
+    private BarChart<String, Number> chart;
     
     public PerformanceController(){
         super("myPerformance.fxml");
@@ -36,72 +39,38 @@ public class PerformanceController extends UserInterface{
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-       
-    boxDis.getItems().addAll(
-            "ADMINISTRAÇÃO DE NEGÓCIOS DE BASE TECNOLÓGICA",
-            "ÁLGEBRA I",
-            "ÁLGEBRA II",
-            "ALGORITMOS E PROGRAMAÇÃO I",
-            "ALGORITMOS E PROGRAMAÇÃO II",
-            "ANÁLISE DE CIRCUITOS ELÉTRICOS",
-            "ANÁLISE E CONTROLE DE PROCESSOS", 
-            "ARQUITETURA DE COMPUTADORES I",
-            "ARQUITETURA DE COMPUTADORES  II",
-            "BANCO DE DADOS", 
-            "CIRCUITOS DIGITAIS", 
-            "COMUNICAÇÃO DIGITAL", 
-            "CONTROLE LÓGICO DE SISTEMAS", 
-            "CÁLCULO I",
-            "CÁLCULO II",
-            "CÁLCULO III",
-            "CÁLCULO NUMERICO",
-            "DESENHO TÉCNICO",
-            "ELETRÔNICA APLICADA", 
-            "ELETRÔNICA BÁSICA",
-            "ENGENHARIA DE SOFTWARE I",
-            "ENGENHARIA DE SOFTWARE II",
-            "ENGENHARIA ECONÔMICA", 
-            "ESTRUTURAS DE DADOS", 
-            "ÉTICA EM INFORMÁTICA",
-            "FÍSICA GERAL", 
-            "FÍSICA III",
-            "GERÊNCIA DE PROJETOS", 
-            "GRAFOS",
-            "INICIAÇÃO TÉCNICO-CIENTÍFICA", 
-            "INTELIGÊNCIA ARTIFICIAL", 
-            "INTERFACE HUMANO - COMPUTADOR", 
-            "INTRODUÇÃO A ENGENHARIA DE COMPUTAÇÃO", 
-            "INTRODUÇÃO AO CÁLCULO", 
-            "INTRODUÇÃO À FÍSICA", 
-            "LINGUAGENS FORMAIS",
-            "MATEMÁTICA APLICADA À ENGENHARIA", 
-            "MATEMÁTICA COMPUTACIONAL", 
-            "MICROCONTROLADORES",
-            "ÓTICA E FÍSICA PARA SEMICONDUTORES", 
-            "PROBABILIDADE E ESTATÍSTICA",
-            "PROCESSADOR DIGITAL DE SINAIS",
-            "PROGRAMAÇÃO ORIENTADA A OBJETOS I",
-            "PROGRAMAÇÃO ORIENTADA A OBJETOS II",
-            "PROJETO DE SISTEMAS DIGITAIS",
-            "PROJETO DE SISTEMAS EMBARCADOS", 
-            "QUÍMICA I",
-            "QUÍMICA II",
-            "REDES DE COMPUTADORES I",
-            "REDES DE COMPUTADORES II",
-            "RESISTÊNCIA DOS MATERIAIS", 
-            "SIMULAÇÃO DISCRETA", 
-            "SISTEMAS DISTRIBUÍDOS",
-            "SISTEMAS EM TEMPO REAL",
-            "SISTEMAS OPERACIONAIS", 
-            "SISTEMAS ROBÓTICOS", 
-            "TCC I",
-            "TCC II",
-            "TCC III",
-            "TÓP. ESPECIAIS EM INTEGRAÇÃO SOFTWARE HARDWARE",
-            "TÓPICOS ESPECIAIS EM ENGENHARIA DE COMPUTAÇÃO", 
-            "TÓPICOS ESPECIAIS EM HARDWARE"
-    );
-    }    
+        Exam.getExamList().stream().filter((ex) -> (!this.boxDis.getItems().contains(ex.getSubject()))).forEachOrdered((ex) -> {
+            this.boxDis.getItems().add(ex.getSubject());
+        });
+    }
+    
+    @FXML
+    public void subjectsPerformance(){      
+        CategoryAxis x = new CategoryAxis();      
+        NumberAxis y = new NumberAxis();
+        x.setLabel("Médias");
+        y.setLabel("Nota");
+
+        this.chart.getData().clear();
+        
+        XYChart.Series M1 = new XYChart.Series();
+        M1.setName("M1");       
+        M1.getData().add(new XYChart.Data(this.boxDis.getSelectionModel().getSelectedItem().toString(), Exam.finalM(this.boxDis.getSelectionModel().getSelectedItem().toString(), "M1")));
+        
+        XYChart.Series M2 = new XYChart.Series();
+        M2.setName("M2");
+        M2.getData().add(new XYChart.Data(this.boxDis.getSelectionModel().getSelectedItem().toString(), Exam.finalM(this.boxDis.getSelectionModel().getSelectedItem().toString(), "M2")));
+        
+        XYChart.Series M3 = new XYChart.Series();
+        M3.setName("M3");
+        M3.getData().add(new XYChart.Data(this.boxDis.getSelectionModel().getSelectedItem().toString(), Exam.finalM(this.boxDis.getSelectionModel().getSelectedItem().toString(), "M3")));
+        
+        XYChart.Series MF = new XYChart.Series();
+        MF.setName("MF");
+        MF.getData().add(new XYChart.Data(this.boxDis.getSelectionModel().getSelectedItem().toString(), Exam.finalM(this.boxDis.getSelectionModel().getSelectedItem().toString(), "MF")));
+        
+        this.chart.getData().addAll(M1, M2, M3, MF);
+    }
     
     @FXML
     public void goToDashboard(ActionEvent event ){

@@ -23,6 +23,6 @@
           <NumberAxis side="LEFT" />
         </yAxis>
       </BarChart>
-      <ComboBox fx:id="boxDis" layoutX="45.0" layoutY="68.0" prefHeight="42.0" prefWidth="383.0" promptText="Disciplinas" />
+      <ComboBox fx:id="boxDis" layoutX="45.0" layoutY="68.0" onAction="#subjectsPerformance" prefHeight="42.0" prefWidth="383.0" promptText="Disciplinas" />
    </children>
 </AnchorPane>

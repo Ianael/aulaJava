@@ -57,8 +57,7 @@ public class MyExamsController extends UserInterface {
     public void initialize(URL url, ResourceBundle rb){
         // TODO
         
-        Exam ex = new Exam();
-        ArrayList<Exam> list = ex.getExamList();
+        ArrayList<Exam> list = Exam.getExamList();
         
         ObservableList data2 = FXCollections.observableArrayList(list);
         

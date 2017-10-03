@@ -22,7 +22,7 @@ import javafx.scene.layout.Pane;
 public abstract class UserInterface implements Initializable{
     
     private Scene newScene;
-    private String FxmlPath;
+    private final String FxmlPath;
     
     protected UserInterface(String FxmlPath){
         this.FxmlPath = FxmlPath;

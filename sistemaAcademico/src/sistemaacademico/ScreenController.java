@@ -27,7 +27,7 @@ public class ScreenController {
     }
     
     private Stage stage;
-    private Stack <UserInterface> stackReturn;
+    private final Stack <UserInterface> stackReturn;
     private UserInterface currentScreen;
     
     public void StageInitialize(Stage p, UserInterface firstInterface){
@@ -45,7 +45,6 @@ public class ScreenController {
         this.stackReturn.push(this.currentScreen);
         this.getStage().setScene(newScreen.getScene());
         this.currentScreen = newScreen;
-        System.out.println(this.stackReturn.size());
     }
     
     public void back() {

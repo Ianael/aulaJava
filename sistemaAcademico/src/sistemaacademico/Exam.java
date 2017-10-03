@@ -63,7 +63,7 @@ public class Exam{
         }
     }
     
-    public ArrayList<Exam> getExamList(){     
+    public static ArrayList<Exam> getExamList(){     
         String table;
         BufferedReader br = null;
         FileReader fr = null;
@@ -197,9 +197,33 @@ public class Exam{
         this.M = M;
     }
     
-    public double finalM(String subject, char[] M){
-        double MFinal = Double.parseDouble(subject)/3;
+    /**
+     *
+     * @param subject
+     * @param M
+     * @return
+     */
+    public static double finalM(String subject, String M){     
+        double MFinal = 0;
+        double Value = 0;
         
+        if(!M.equals("MF")){
+            for(Exam ex : getExamList()){
+                if(ex.subject.equals(subject) && ex.M.equals(M)){
+                    MFinal += ex.grade * ex.value;
+                    Value += ex.value;
+                }
+            }
+
+            MFinal /= Value;   
+        }else{
+            MFinal = (finalM(subject, "M1") + finalM(subject, "M2") + finalM(subject, "M3"))/3;
+        }
+        
+        if(Double.isNaN(MFinal)){
+            MFinal = 0;
+        }
+
         return MFinal;
     }
     

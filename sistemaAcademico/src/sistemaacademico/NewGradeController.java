@@ -44,8 +44,7 @@ public class NewGradeController extends UserInterface{
         // TODO
         
         int x = MyExamsController.index;
-        Exam ex = new Exam();
-        ArrayList<Exam> list = ex.getExamList();
+        ArrayList<Exam> list = Exam.getExamList();
 
         LDis.setText(list.get(x).getSubject());
         LName.setText(list.get(x).getName());
@@ -57,8 +56,7 @@ public class NewGradeController extends UserInterface{
         
         int x = MyExamsController.index;
         
-        Exam ex = new Exam();
-        ArrayList<Exam> list = ex.getExamList();
+        ArrayList<Exam> list = Exam.getExamList();
    
         list.get(x).setGrade(Double.parseDouble(textGrade.getText()));
         
